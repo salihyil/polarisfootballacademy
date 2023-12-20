@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "../globals.scss";
 import { languages } from "../i18n/settings";
+import { Footer } from "./components/Footer";
+import { Header } from "./components/Header";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -20,7 +22,11 @@ export default function RootLayout({
   return (
     <html lang={lng} dir={dir(lng)}>
       <head />
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <Header lng={lng} />
+        {children}
+        <Footer lng={lng} />
+      </body>
     </html>
   );
 }
