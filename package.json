@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "accept-language": "^3.0.18",
+    "framer-motion": "^10.16.16",
+    "hamburger-react": "^2.5.0",
     "i18next": "^23.7.11",
     "i18next-browser-languagedetector": "^7.2.0",
     "i18next-resources-for-ts": "^1.4.0",

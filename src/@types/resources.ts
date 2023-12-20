@@ -1,15 +1,13 @@
 import clientpage from "../app/i18n/locales/en/client-page.json";
 import footer from "../app/i18n/locales/en/footer.json";
-import seconclientpage from "../app/i18n/locales/en/second-client-page.json";
-import secondpage from "../app/i18n/locales/en/second-page.json";
-import translation from "../app/i18n/locales/en/translation.json";
+import homepage from "../app/i18n/locales/en/home-page.json";
+import header from "../app/i18n/locales/en/header.json";
 
 const resources = {
-  footer,
-  "second-page": secondpage,
-  translation,
+  "home-page": homepage,
   "client-page": clientpage,
-  "second-client-page": seconclientpage,
+  header,
+  footer,
 } as const;
 
 export default resources;

@@ -1,3 +1,4 @@
+import { useTranslation } from "@/app/i18n";
 import Link from "next/link";
 import EntypoSocialInstagram from "../../../../../public/assets/icons/EntypoSocialInstagram";
 import MaterialSymbolsLocationOnRounded from "../../../../../public/assets/icons/MaterialSymbolsLocationOnRounded";
@@ -7,13 +8,14 @@ import TablerMailFilled from "../../../../../public/assets/icons/TablerMailFille
 import UiwFacebook from "../../../../../public/assets/icons/UiwFacebook";
 
 export const Footer = async ({ lng, path }: { lng: string; path?: string }) => {
+  const { t } = await useTranslation(lng, "footer");
   return (
     <footer className="  mt-14 px-32  pb-12 bg-black ">
       <div className=" container mx-auto grid grid-cols-3 text-white  ">
         <aside className="pt-[30px] pb-[40px] ">
           <section>
             <h4 className="pt-[25px] pb-[10px] mb-[10px] text-xl uppercase font-oswald">
-              Follow Us!
+              {t("follow-us")}
             </h4>
             <ul>
               <li>
@@ -52,7 +54,7 @@ export const Footer = async ({ lng, path }: { lng: string; path?: string }) => {
         <aside className="pt-[30px] pb-[40px] pe-3">
           <section>
             <h4 className="pt-[25px] pb-[10px] mb-[10px] text-xl uppercase font-oswald">
-              POLARIS MAIN OFFICE
+              {t("polaris-main-office")}
             </h4>
             <ul>
               <li>
@@ -95,15 +97,9 @@ export const Footer = async ({ lng, path }: { lng: string; path?: string }) => {
         <aside className="pt-[30px] pb-[40px]">
           <section>
             <h4 className="pt-[25px] pb-[10px] mb-[10px] text-xl uppercase font-oswald">
-              OUR MISSION
+              {t("our-mission")}
             </h4>
-            <p>
-              Polaris strives to enhance the quality of life of our next generation, by providing
-              them with healthy, positive, fun, and professional sports and recreational programs at
-              an early age. We believe the proven physical, emotional, and mental benefits gained
-              from sports go hand-in-hand in building a lifetime of balanced, successful, confident
-              and happy individuals.
-            </p>
+            <p>{t("mission-info")}</p>
           </section>
         </aside>
       </div>

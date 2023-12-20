@@ -1,5 +1,6 @@
 {
-  "description": "This is a non-page component that requires its own namespace",
-  "helpLocize": "With using <1>locize</1> you directly support the future of <3>i18next</3>.",
-  "languageSwitcher": "Switch from <1>{{lng}}</1> to: "
+  "follow-us": "Follow Us!",
+  "polaris-main-office": "Polaris Main Office",
+  "our-mission": "Our Mission",
+  "mission-info": " Polaris strives to enhance the quality of life of our next generation, by providing them with healthy, positive, fun, and professional sports and recreational programs at an early age. We believe the proven physical, emotional, and mental benefits gained from sports go hand-in-hand in building a lifetime of balanced, successful, confident and happy individuals."
 }

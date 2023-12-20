@@ -2,88 +2,88 @@ import { MenuItem } from "@/types";
 
 export const navMenu: MenuItem[] = [
   {
-    title: "English",
+    title: "en",
     href: "",
     dropdown: true,
     subMenu: [
       {
-        title: "English",
+        title: "en",
         href: "en",
       },
       {
-        title: "中文",
+        title: "tw",
         href: "tw",
       },
     ],
   },
   {
-    title: "Weekend Program",
+    title: "weekend-program",
     href: "weekend-program",
     dropdown: true,
     subMenu: [
       {
-        title: "Teamsnap",
+        title: "teamsnap",
         href: "teamsnap",
       },
     ],
   },
   {
-    title: "Schedule",
+    title: "schedule",
     href: "schedule",
     dropdown: false,
   },
   {
-    title: "Camp",
+    title: "camp",
     href: "camp",
     dropdown: false,
   },
   {
-    title: "Spotlight",
+    title: "spotlight",
     href: "spotlight",
     dropdown: false,
   },
   {
-    title: "About Us",
+    title: "about-us",
     href: "about-us",
     dropdown: true,
     subMenu: [
       {
-        title: "Our Story",
+        title: "our-story",
         href: "our-story",
       },
       {
-        title: "Why Choose Us",
+        title: "why-choose-us",
         href: "why-choose-us",
       },
       {
-        title: "Instructors",
+        title: "instructors",
         href: "instructors",
       },
       {
-        title: "Cooperative Schools",
+        title: "cooperative-schools",
         href: "cooperative-schools",
       },
       {
-        title: "Our Locations",
+        title: "our-locations",
         href: "our-locations",
       },
       {
-        title: "Franchise Info",
+        title: "franchise-info",
         href: "franchise-info",
       },
       {
-        title: "Refund Policy",
+        title: "refund-policy",
         href: "refund-policy",
       },
     ],
   },
   {
-    title: "Registration",
+    title: "registration",
     href: "registration",
     dropdown: false,
   },
   {
-    title: "News",
+    title: "news",
     href: "news",
     dropdown: false,
   },

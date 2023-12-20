@@ -1,6 +1,7 @@
 "use client";
 
-import { MenuItem } from "@/types";
+import { useTranslation } from "@/app/i18n/client";
+import { MenuItem, SubMenuItem } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -11,6 +12,7 @@ import logoT from "../../../../../public/assets/images/logo_transparent.png";
 import { navMenu } from "./constant";
 
 export const Header = ({ lng }: { lng: string }) => {
+  const { t } = useTranslation(lng, "header");
   const [visibleSocial, setVisibleSocial] = useState(true);
   const [visibleNav, setVisibleNav] = useState(false);
 
@@ -43,7 +45,7 @@ export const Header = ({ lng }: { lng: string }) => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [setVisibleNav, setVisibleSocial]);
 
   const headerNavStyle = [visibleNav ? "bg-white" : "bg-transparent"];
   const headerSocialStyle = [visibleSocial ? "translate-y-0" : " translate-y-[-50px]"];
@@ -89,18 +91,18 @@ export const Header = ({ lng }: { lng: string }) => {
                   <li
                     key={item.title}
                     className={`group relative tracking-wide transition  text-black  font-oswald font-bold hover:text-[#CC9966] uppercase`}>
-                    <Link href={`/${lng}/${item.href}`}>{item.title}</Link>
+                    <Link href={`/${lng}/${item.href}`}>{t(item.title)}</Link>
                     {item.dropdown && (
                       <div className={`group-hover:block absolute hidden h-auto   `}>
                         <ul className="top-0 w-48 bg-white shadow px-4 py-6">
                           {item?.subMenu &&
-                            item.subMenu.map((subItem: any, index: number) => {
+                            item.subMenu.map((subItem: SubMenuItem, index: number) => {
                               return (
                                 <li key={index} className="py-1">
                                   <Link
                                     href={subItem.href}
                                     className="block text-black font-bold text-base uppercase duration-300 transition hover:text-[#CC9966] hover:border-b-gray-500 hover:border-b-2  cursor-pointer">
-                                    {subItem.title.toUpperCase()}
+                                    {t(subItem.title)}
                                   </Link>
                                 </li>
                               );

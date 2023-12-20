@@ -1,5 +1,6 @@
 {
-  "description": "Dies ist eine Nicht-Seitenkomponente, die einen eigenen Namespace erfordert",
-  "helpLocize": "Wenn Sie <1>locize</1> einsetzen, unterstützen Sie direkt die Zukunft von <3>i18next</3>.",
-  "languageSwitcher": "Wechseln von <1>{{lng}}</1> nach: "
+  "follow-us": "跟着我们！",
+  "polaris-main-office": "Polaris 總辦公室",
+  "our-mission": "使命",
+  "mission-info": "Polaris 的縮寫，專為孩童提供各樣有趣又專業的運動及休閒課程，目的是為了替下一代從小建立健康、正面的態度，以增進他們未來的生活品質。"
 }
