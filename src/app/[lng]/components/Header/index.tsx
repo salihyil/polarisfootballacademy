@@ -71,7 +71,7 @@ export const Header = ({ lng }: { lng: string }) => {
         </div>
       </div>
       <div
-        className={`w-full min-h-full shadow-lg px-[60px] max-lg:bg-white   ${headerNavStyle} ${
+        className={`w-full min-h-full shadow-lg px-[30px] max-lg:bg-white   ${headerNavStyle} ${
           visibleNav ? "py-4" : ""
         }`}>
         <div className="container mx-auto flex lg:justify-around items-center ">

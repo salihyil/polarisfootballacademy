@@ -22,8 +22,6 @@ export const NavMobile = ({ lng }: { lng: string }) => {
     setSubmenuNavMobile(item);
   };
 
-  console.log(submenuNavMobile);
-
   return (
     <div ref={ref} className="lg:hidden ">
       <Hamburger toggled={isOpen} size={30} toggle={setIsOpen} />
