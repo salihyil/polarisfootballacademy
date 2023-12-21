@@ -8,11 +8,11 @@ export default async function Language({ params: { lng } }: Readonly<LanguageTyp
   const { t } = await useTranslation(lng, "home-page");
   return (
     <main>
-      <div className="flex justify-center items-center bg-black">
+      <div className="flex justify-center items-center transition-all duration-500 bg-black mx-lg:mt-[100px]">
         <Image src={bgImage} alt="logo" sizes="100vw" priority quality={100} />
       </div>
 
-      <div className="container  mx-auto  mt-14 px-32  pb-12 max-lg:text-red-100 ">
+      <div className="container  mx-auto  mt-14 px-32  pb-12 max-lg:px-6 ">
         <div className="body">
           <p className="mt-2">{t("dear-parents")}</p>
           <p className="mt-2">{t("information-for-parents")}</p>
