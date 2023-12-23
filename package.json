@@ -10,6 +10,10 @@
     "toc": "i18next-resources-for-ts toc -i ./src/app/i18n/locales/en -o ./@types/resources.ts"
   },
   "dependencies": {
+    "@supabase/auth-helpers-nextjs": "^0.8.7",
+    "@supabase/auth-ui-react": "^0.4.6",
+    "@supabase/auth-ui-shared": "^0.1.8",
+    "@supabase/supabase-js": "^2.39.1",
     "accept-language": "^3.0.18",
     "framer-motion": "^10.16.16",
     "hamburger-react": "^2.5.0",
@@ -18,12 +22,14 @@
     "i18next-resources-for-ts": "^1.4.0",
     "i18next-resources-to-backend": "^1.2.0",
     "next": "14.0.4",
+    "npm": "^10.2.5",
     "react": "^18",
     "react-cookie": "^6.1.1",
     "react-dom": "^18",
     "react-i18next": "^13.5.0",
     "react-use": "^17.4.2",
-    "sass": "^1.69.5"
+    "sass": "^1.69.5",
+    "sharp": "^0.33.1"
   },
   "devDependencies": {
     "@types/node": "^20",
@@ -33,6 +39,7 @@
     "eslint": "^8",
     "eslint-config-next": "14.0.4",
     "postcss": "^8",
+    "supabase": "^1.123.4",
     "tailwindcss": "^3.3.0",
     "typescript": "^5"
   }

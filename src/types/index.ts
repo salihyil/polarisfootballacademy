@@ -30,3 +30,14 @@ export type MenuItem = {
   dropdown?: boolean;
   subMenu?: SubMenuItem[];
 };
+
+
+type CommonFields = {
+  id?: string;
+  created_at?: string;
+};
+
+
+export type User = {
+  email: string;
+} & CommonFields;

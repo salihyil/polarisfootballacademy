@@ -7,20 +7,17 @@ import { Squash as Hamburger } from "hamburger-react";
 import Link from "next/link";
 import { useRef, useState } from "react";
 import { useClickAway } from "react-use";
-import MaterialSymbolsArrowRightAlt from "../../../../../public/assets/icons/MaterialSymbolsArrowRightAlt";
+import MaterialSymbolsArrowRightAlt from "../../../public/assets/icons/MaterialSymbolsArrowRightAlt";
+import Button from "../Button";
 import { navMenu } from "../Header/constant";
 
 export const NavMobile = ({ lng }: { lng: string }) => {
   const { t } = useTranslation(lng, "header");
   const [isOpen, setIsOpen] = useState(false);
-  const [submenuNavMobile, setSubmenuNavMobile] = useState(false);
+
   const ref = useRef(null);
 
   useClickAway(ref, () => setIsOpen(false));
-
-  const showSubmenuNavMobile = (item: any) => {
-    setSubmenuNavMobile(item);
-  };
 
   return (
     <div ref={ref} className="lg:hidden ">
@@ -52,11 +49,7 @@ export const NavMobile = ({ lng }: { lng: string }) => {
                     className={`group relative tracking-wide transition  text-[#4A4A4A] font-oswald font-bold hover:text-[#CC9966] uppercase`}>
                     <div className="flex items-center">
                       {item.dropdown ? (
-                        <button
-                          onClick={() => showSubmenuNavMobile(item.dropdown)}
-                          className="cursor-none uppercase w-max">
-                          {t(item.title)}
-                        </button>
+                        <Button>{t(item.title)}</Button>
                       ) : (
                         <Link href={`/${lng}/${item.href}`}>{t(item.title)}</Link>
                       )}

@@ -7,7 +7,7 @@ import { useTranslation } from "../i18n";
 export default async function Language({ params: { lng } }: Readonly<LanguageType>) {
   const { t } = await useTranslation(lng, "home-page");
   return (
-    <main>
+    <>
       <div className="flex justify-center items-center transition-all duration-500 bg-black mx-lg:mt-[100px]">
         <Image src={bgImage} alt="logo" sizes="100vw" priority quality={100} />
       </div>
@@ -33,6 +33,6 @@ export default async function Language({ params: { lng } }: Readonly<LanguageTyp
           </Link>
         </div>
       </div>
-    </main>
+    </>
   );
 }

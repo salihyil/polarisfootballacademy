@@ -5,10 +5,10 @@ import { MenuItem, SubMenuItem } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import IonLogoYoutube from "../../../../../public/assets/icons/IonLogoYoutube";
-import IonSocialFacebook from "../../../../../public/assets/icons/IonSocialFacebook";
-import IonSocialInstagramOutline from "../../../../../public/assets/icons/IonSocialInstagramOutline";
-import logoT from "../../../../../public/assets/images/logo_transparent.png";
+import IonLogoYoutube from "../../../public/assets/icons/IonLogoYoutube";
+import IonSocialFacebook from "../../../public/assets/icons/IonSocialFacebook";
+import IonSocialInstagramOutline from "../../../public/assets/icons/IonSocialInstagramOutline";
+import logoT from "../../../public/assets/images/logo_transparent.png";
 import { NavMobile } from "../NavMobile";
 import { navMenu } from "./constant";
 

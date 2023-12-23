@@ -1,3 +1,4 @@
+import { createMiddlewareClient } from "@supabase/auth-helpers-nextjs";
 import acceptLanguage from "accept-language";
 import { NextRequest, NextResponse } from "next/server";
 import { cookieName, fallbackLng, languages } from "./app/i18n/settings";
@@ -10,7 +11,19 @@ export const config = {
 };
 
 export async function middleware(req: NextRequest) {
+  const res = NextResponse.next();
+  const supabase = createMiddlewareClient({ req, res });
   let lng;
+ /*  const {
+    data: { session },
+  } = await supabase.auth.getSession();
+
+  if (!session) {
+    console.log("req.url:::", req.url);
+
+    return NextResponse.rewrite(req.url);
+  } */
+
   if (req.cookies.has(cookieName)) {
     const cookie = req.cookies.get(cookieName);
     if (cookie) {
@@ -33,11 +46,11 @@ export async function middleware(req: NextRequest) {
     if (referer) {
       const refererUrl = new URL(referer);
       const lngInReferer = languages.find((l) => refererUrl.pathname.startsWith(`/${l}`));
-      const response = NextResponse.next();
-      if (lngInReferer) response.cookies.set(cookieName, lngInReferer);
-      return response;
+
+      if (lngInReferer) res.cookies.set(cookieName, lngInReferer);
+      return res;
     }
   }
 
-  return NextResponse.next();
+  return res;
 }

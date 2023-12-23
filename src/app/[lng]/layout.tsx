@@ -1,10 +1,10 @@
+import Pathname from "@/components/Pathname/page";
 import { dir } from "i18next";
 import type { Metadata } from "next";
-import { Inter, Oswald } from "next/font/google";
+import { Inter } from "next/font/google";
 import "../globals.scss";
 import { languages } from "../i18n/settings";
-import { Footer } from "./components/Footer";
-import { Header } from "./components/Header";
+import { AppWrapper } from "@/context";
 
 export const metadata: Metadata = {
   title: "Polaris Football Academy",
@@ -13,8 +13,10 @@ export const metadata: Metadata = {
 export async function generateStaticParams() {
   return languages.map((lng) => ({ lng }));
 }
-const inter = Inter({ subsets: ["latin"] });
-const oswald = Oswald({ subsets: ["latin"], variable: "--font-oswald" });
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+
+console.log("RootLayout");
+
 
 export default function RootLayout({
   children,
@@ -23,10 +25,10 @@ export default function RootLayout({
   return (
     <html lang={lng} dir={dir(lng)}>
       <head />
-      <body className={`${inter.className} ${oswald.className} `}>
-        <Header lng={lng} />
-        {children}
-        <Footer lng={lng} />
+      <body className={`${inter.className}  `}>
+        <AppWrapper >
+          <Pathname lang={lng} child={children}></Pathname>
+        </AppWrapper>
       </body>
     </html>
   );

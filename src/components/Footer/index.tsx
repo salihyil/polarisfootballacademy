@@ -1,11 +1,11 @@
 import { useTranslation } from "@/app/i18n";
 import Link from "next/link";
-import EntypoSocialInstagram from "../../../../../public/assets/icons/EntypoSocialInstagram";
-import MaterialSymbolsLocationOnRounded from "../../../../../public/assets/icons/MaterialSymbolsLocationOnRounded";
-import RiPhoneFill from "../../../../../public/assets/icons/RiPhoneFill";
-import SimpleIconsYoutube from "../../../../../public/assets/icons/SimpleIconsYoutube";
-import TablerMailFilled from "../../../../../public/assets/icons/TablerMailFilled";
-import UiwFacebook from "../../../../../public/assets/icons/UiwFacebook";
+import EntypoSocialInstagram from "../../../public/assets/icons/EntypoSocialInstagram";
+import MaterialSymbolsLocationOnRounded from "../../../public/assets/icons/MaterialSymbolsLocationOnRounded";
+import RiPhoneFill from "../../../public/assets/icons/RiPhoneFill";
+import SimpleIconsYoutube from "../../../public/assets/icons/SimpleIconsYoutube";
+import TablerMailFilled from "../../../public/assets/icons/TablerMailFilled";
+import UiwFacebook from "../../../public/assets/icons/UiwFacebook";
 
 export const Footer = async ({ lng, path }: { lng: string; path?: string }) => {
   const { t } = await useTranslation(lng, "footer");
