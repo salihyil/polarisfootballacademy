@@ -10,9 +10,9 @@
     "toc": "i18next-resources-for-ts toc -i ./src/app/i18n/locales/en -o ./@types/resources.ts"
   },
   "dependencies": {
-    "@supabase/auth-helpers-nextjs": "^0.8.7",
     "@supabase/auth-ui-react": "^0.4.6",
     "@supabase/auth-ui-shared": "^0.1.8",
+    "@supabase/ssr": "^0.0.10",
     "@supabase/supabase-js": "^2.39.1",
     "accept-language": "^3.0.18",
     "framer-motion": "^10.16.16",

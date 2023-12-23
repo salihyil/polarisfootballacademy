@@ -27,8 +27,6 @@ export const menu: MenuItem[] = [
   },
 ];
 
-console.log("Sidebar");
-
 export default function Sidebar() {
   return (
     <>

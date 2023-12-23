@@ -1,4 +1,4 @@
-import { createMiddlewareClient } from "@supabase/auth-helpers-nextjs";
+import { createServerClient, type CookieOptions } from "@supabase/ssr";
 import acceptLanguage from "accept-language";
 import { NextRequest, NextResponse } from "next/server";
 import { cookieName, fallbackLng, languages } from "./app/i18n/settings";
@@ -11,18 +11,59 @@ export const config = {
 };
 
 export async function middleware(req: NextRequest) {
-  const res = NextResponse.next();
-  const supabase = createMiddlewareClient({ req, res });
   let lng;
- /*  const {
-    data: { session },
-  } = await supabase.auth.getSession();
+  let res = NextResponse.next({
+    request: {
+      headers: req.headers,
+    },
+  });
+  const supabase = createServerClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    {
+      cookies: {
+        get(name: string) {
+          return req.cookies.get(name)?.value;
+        },
+        set(name: string, value: string, options: CookieOptions) {
+          req.cookies.set({
+            name,
+            value,
+            ...options,
+          });
+          res = NextResponse.next({
+            request: {
+              headers: req.headers,
+            },
+          });
+          res.cookies.set({
+            name,
+            value,
+            ...options,
+          });
+        },
+        remove(name: string, options: CookieOptions) {
+          req.cookies.set({
+            name,
+            value: "",
+            ...options,
+          });
+          res = NextResponse.next({
+            request: {
+              headers: req.headers,
+            },
+          });
+          res.cookies.set({
+            name,
+            value: "",
+            ...options,
+          });
+        },
+      },
+    }
+  );
 
-  if (!session) {
-    console.log("req.url:::", req.url);
-
-    return NextResponse.rewrite(req.url);
-  } */
+  await supabase.auth.getSession();
 
   if (req.cookies.has(cookieName)) {
     const cookie = req.cookies.get(cookieName);

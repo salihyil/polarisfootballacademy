@@ -1,10 +1,10 @@
 import Pathname from "@/components/Pathname/page";
+import { AppWrapper } from "@/context";
 import { dir } from "i18next";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "../globals.scss";
 import { languages } from "../i18n/settings";
-import { AppWrapper } from "@/context";
 
 export const metadata: Metadata = {
   title: "Polaris Football Academy",
@@ -15,9 +15,6 @@ export async function generateStaticParams() {
 }
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
-console.log("RootLayout");
-
-
 export default function RootLayout({
   children,
   params: { lng },
@@ -26,7 +23,7 @@ export default function RootLayout({
     <html lang={lng} dir={dir(lng)}>
       <head />
       <body className={`${inter.className}  `}>
-        <AppWrapper >
+        <AppWrapper>
           <Pathname lang={lng} child={children}></Pathname>
         </AppWrapper>
       </body>

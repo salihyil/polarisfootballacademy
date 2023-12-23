@@ -59,8 +59,6 @@ export default function Login() {
     }
   };
 
-  console.log("Login");
-
   return (
     <div className="flex justify-center items-center bg-gray-100 h-screen w-full py-8">
       <div className="bg-white rounded-lg shadow-sm border w-[300px] mx-auto px-6 py-4 grid gap-4">
