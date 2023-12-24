@@ -1,9 +1,7 @@
-import Pathname from "@/components/Pathname/page";
 import { AppWrapper } from "@/context";
-import { Analytics } from "@vercel/analytics/react";
 import { dir } from "i18next";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Oswald } from "next/font/google";
 import "../globals.scss";
 import { languages } from "../i18n/settings";
 
@@ -14,7 +12,8 @@ export const metadata: Metadata = {
 export async function generateStaticParams() {
   return languages.map((lng) => ({ lng }));
 }
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const inter = Inter({ subsets: ["latin"] });
+const oswald = Oswald({ subsets: ["latin"], variable: "--font-oswald" });
 
 export default function RootLayout({
   children,
@@ -23,11 +22,8 @@ export default function RootLayout({
   return (
     <html lang={lng} dir={dir(lng)}>
       <head />
-      <body className={`${inter.className}  `}>
-        <AppWrapper>
-          <Pathname lang={lng} child={children}></Pathname>
-        </AppWrapper>
-        <Analytics />
+      <body className={`${inter.className} ${oswald.variable} `}>
+        <AppWrapper lng={lng}>{children}</AppWrapper>
       </body>
     </html>
   );

@@ -1,5 +1,7 @@
 "use client";
 
+import { Footer } from "@/components/Footer";
+import { Header } from "@/components/Header";
 import Sidebar from "@/components/Sidebar";
 import { supabase } from "@/lib/supabase";
 import { User } from "@/types";
@@ -9,8 +11,10 @@ const AppContext = createContext<any>(undefined);
 
 export function AppWrapper({
   children,
+  lng,
 }: Readonly<{
   children: React.ReactNode;
+  lng: string;
 }>) {
   const [user, setUser] = useState<User | undefined>(undefined);
   const [loading, setLoading] = useState<boolean>(false);
@@ -27,6 +31,7 @@ export function AppWrapper({
         }
       } catch (e) {
         // Handle error
+        console.log(e);
       } finally {
         setLoading(false);
       }
@@ -41,10 +46,21 @@ export function AppWrapper({
         user,
         setUser,
         supabase,
+        lng,
       }}>
       <main>
-        <div className="flex items-start justify-start w-full relative">{user && <Sidebar />}</div>
-        {!user && <>{children}</>}
+        {user && (
+          <div className="flex items-start justify-start w-full relative">
+            <Sidebar />
+          </div>
+        )}
+        {!user && (
+          <>
+            <Header />
+            <main className="container mx-auto relative max-lg:static">{children}</main>
+            <Footer />
+          </>
+        )}
       </main>
     </AppContext.Provider>
   );

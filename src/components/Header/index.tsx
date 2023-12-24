@@ -1,6 +1,7 @@
 "use client";
 
 import { useTranslation } from "@/app/i18n/client";
+import { useAppContext } from "@/context";
 import { MenuItem, SubMenuItem } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
@@ -12,7 +13,8 @@ import logoT from "../../../public/assets/images/logo_transparent.png";
 import { NavMobile } from "../NavMobile";
 import { navMenu } from "./constant";
 
-export const Header = ({ lng }: { lng: string }) => {
+export const Header = () => {
+  const { lng } = useAppContext();
   const { t } = useTranslation(lng, "header");
   const [visibleSocial, setVisibleSocial] = useState(true);
   const [visibleNav, setVisibleNav] = useState(false);

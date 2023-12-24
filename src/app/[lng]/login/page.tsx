@@ -6,6 +6,8 @@ import { useNavigation } from "@/hooks/useNavigation";
 
 import { isValidEmail } from "@/lib/utils";
 import { useState } from "react";
+import GridiconsNotVisible from "../../../../public/assets/icons/GridiconsNotVisible";
+import GridiconsVisible from "../../../../public/assets/icons/GridiconsVisible";
 
 export default function Login() {
   const { router } = useNavigation();
@@ -16,6 +18,13 @@ export default function Login() {
   });
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | undefined>(undefined);
+  const [passwordVisible, setPasswordVisible] = useState(false);
+  const [inputType, setInputType] = useState("password");
+
+  const togglePasswordVisibility = () => {
+    setPasswordVisible(!passwordVisible);
+    setInputType(passwordVisible ? "password" : "text");
+  };
 
   const handleChange = (e: any) => {
     const { name, value } = e.target;
@@ -68,13 +77,21 @@ export default function Login() {
         </div>
         <div className="grid">
           <label htmlFor="password">Password</label>
-          <input
-            id="password"
-            type="password"
-            name="password"
-            value={data?.password}
-            onChange={handleChange}
-          />
+          <div className="relative">
+            <input
+              id="password"
+              type={inputType}
+              name="password"
+              value={data?.password}
+              onChange={handleChange}
+            />
+
+            <div
+              className="absolute top-0 right-0 flex items-center h-full align-middle pr-4"
+              onClick={togglePasswordVisibility}>
+              {passwordVisible ? <GridiconsVisible /> : <GridiconsNotVisible />}
+            </div>
+          </div>
         </div>
         {error && <div className="notification error">{error}</div>}
         <div>

@@ -1,4 +1,7 @@
-import { useTranslation } from "@/app/i18n";
+"use client";
+
+import { useTranslation } from "@/app/i18n/client";
+import { useAppContext } from "@/context";
 import Link from "next/link";
 import EntypoSocialInstagram from "../../../public/assets/icons/EntypoSocialInstagram";
 import MaterialSymbolsLocationOnRounded from "../../../public/assets/icons/MaterialSymbolsLocationOnRounded";
@@ -7,8 +10,9 @@ import SimpleIconsYoutube from "../../../public/assets/icons/SimpleIconsYoutube"
 import TablerMailFilled from "../../../public/assets/icons/TablerMailFilled";
 import UiwFacebook from "../../../public/assets/icons/UiwFacebook";
 
-export const Footer = async ({ lng, path }: { lng: string; path?: string }) => {
-  const { t } = await useTranslation(lng, "footer");
+export const Footer = () => {
+  const { lng } = useAppContext();
+  const { t } = useTranslation(lng, "footer");
   return (
     <footer className="  mt-14 pb-12 px-12 bg-black lg:px-16 ">
       <div className=" container mx-auto grid grid-cols-3 max-md:grid-cols-1  text-white  ">
