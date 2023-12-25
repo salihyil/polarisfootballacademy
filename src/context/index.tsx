@@ -20,8 +20,6 @@ export function AppWrapper({
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
 
-  /* https://mssnpyzjcyfdcpjctryi.supabase.co/storage/v1/object/public/images/403605735_376183558307606_1752575454078985055_n.jpg */
-
   const getImages = async () => {
     try {
       const { data, error } = await supabase.storage.from("images").list();
@@ -38,7 +36,6 @@ export function AppWrapper({
 
   async function deleteImage(imageName: any) {
     const { data, error } = await supabase.storage.from("images").remove([imageName]);
-    console.log(data);
 
     if (error) {
       alert(error);
