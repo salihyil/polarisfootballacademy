@@ -13,8 +13,8 @@ export default function Login() {
   const { router } = useNavigation();
   const { supabase, setUser } = useAppContext();
   const [data, setData] = useState<{ email: string; password: string }>({
-    email: "test@test.com",
-    password: "123456",
+    email: "",
+    password: "",
   });
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | undefined>(undefined);

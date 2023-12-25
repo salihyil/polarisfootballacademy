@@ -28,8 +28,8 @@ export const navMenu: MenuItem[] = [
     ],
   },
   {
-    title: "schedule",
-    href: "schedule",
+    title: "photo-gallery",
+    href: "photo-gallery",
     dropdown: false,
   },
   {

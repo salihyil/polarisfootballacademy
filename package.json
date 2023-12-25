@@ -30,12 +30,14 @@
     "react-i18next": "^13.5.0",
     "react-use": "^17.4.2",
     "sass": "^1.69.5",
-    "sharp": "^0.33.1"
+    "sharp": "^0.33.1",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/uuid": "^9.0.7",
     "autoprefixer": "^10.0.1",
     "eslint": "^8",
     "eslint-config-next": "14.0.4",

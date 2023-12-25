@@ -10,17 +10,17 @@ export default function SidebarMenu({
 }: Readonly<{
   menu: MenuItem[];
 }>) {
-  const { pathname } = useNavigation();
+  const { pathname, router } = useNavigation();
 
   const logout = async () => {
- 
     const { error } = await supabase.auth.signOut();
+    router.push("/");
+    //reflesh page
+    window.location.reload();
+
     if (error) {
       console.log("error", error);
     }
-    //reflesh page
-    
-    window.location.reload();
   };
 
   return (

@@ -5,7 +5,7 @@ type TranslationKey =
   | "tw"
   | "weekend-program"
   | "teamsnap"
-  | "schedule"
+  | "photo-gallery"
   | "camp"
   | "spotlight"
   | "about-us"
@@ -20,23 +20,21 @@ type TranslationKey =
   | "news";
 
 export interface SubMenuItem {
-  title: TranslationKey; 
+  title: TranslationKey;
   href: string;
 }
 
 export type MenuItem = {
-  title: TranslationKey; 
+  title: TranslationKey;
   href: string;
   dropdown?: boolean;
   subMenu?: SubMenuItem[];
 };
 
-
 type CommonFields = {
   id?: string;
   created_at?: string;
 };
-
 
 export type User = {
   email: string;

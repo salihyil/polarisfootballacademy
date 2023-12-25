@@ -16,8 +16,43 @@ export function AppWrapper({
   children: React.ReactNode;
   lng: string;
 }>) {
-  const [user, setUser] = useState<User | undefined>(undefined);
+  const [images, setImages] = useState<any>([]);
+  const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
+
+  /* https://mssnpyzjcyfdcpjctryi.supabase.co/storage/v1/object/public/images/403605735_376183558307606_1752575454078985055_n.jpg */
+
+  const getImages = async () => {
+    try {
+      const { data, error } = await supabase.storage.from("images").list();
+
+      if (data !== null) {
+        setImages(data);
+      } else {
+        console.log("Error:", error);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  async function deleteImage(imageName: any) {
+    const { data, error } = await supabase.storage.from("images").remove([imageName]);
+    console.log(data);
+
+    if (error) {
+      alert(error);
+    } else {
+      getImages();
+    }
+  }
+
+  useEffect(() => {
+    if (user) {
+      getImages();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user]);
 
   useEffect(() => {
     const fetchCurrentUser = async () => {
@@ -47,19 +82,22 @@ export function AppWrapper({
         setUser,
         supabase,
         lng,
+        images,
+        setImages,
+        getImages,
+        deleteImage,
       }}>
       <main>
-        {user && (
-          <div className="flex items-start justify-start w-full relative">
-            <Sidebar />
-          </div>
-        )}
-        {!user && (
+        {user === null ? (
           <>
             <Header />
             <main className="container mx-auto relative max-lg:static">{children}</main>
             <Footer />
           </>
+        ) : (
+          <div className="flex items-start justify-start w-full relative">
+            <Sidebar />
+          </div>
         )}
       </main>
     </AppContext.Provider>

@@ -49,7 +49,7 @@ export const NavMobile = ({ lng }: { lng: string }) => {
                     className={`group relative tracking-wide transition  text-[#4A4A4A] font-oswald font-bold hover:text-[#CC9966] uppercase`}>
                     <div className="flex items-center">
                       {item.dropdown ? (
-                        <Button>{t(item.title)}</Button>
+                        <div>{t(item.title)}</div>
                       ) : (
                         <Link href={`/${lng}/${item.href}`}>{t(item.title)}</Link>
                       )}

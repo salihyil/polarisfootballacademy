@@ -14,7 +14,7 @@ export const Footer = () => {
   const { lng } = useAppContext();
   const { t } = useTranslation(lng, "footer");
   return (
-    <footer className="  mt-14 pb-12 px-12 bg-black lg:px-16 ">
+    <footer className=" container mx-auto mt-14 pb-12 px-12 bg-black lg:px-16 ">
       <div className=" container mx-auto grid grid-cols-3 max-md:grid-cols-1  text-white  ">
         <aside className="pt-[30px] pb-[40px] ">
           <section>
