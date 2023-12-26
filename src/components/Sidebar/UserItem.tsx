@@ -1,5 +1,5 @@
 "use client";
-import { useAppContext } from "@/context";
+import { useAppContext } from "@/context/AppWrapper";
 
 import { limitString } from "@/lib/utils";
 import Avatar from "../Avatar";
@@ -21,4 +21,3 @@ export default function UserItem() {
     </div>
   );
 }
-

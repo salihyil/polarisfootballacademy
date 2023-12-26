@@ -1,10 +1,10 @@
 "use client";
 
 import { CDNURL } from "@/app/[lng]/photo-gallery/constant";
-import { useAppContext } from "@/context";
+import { useAppContext } from "@/context/AppWrapper";
 import { supabase } from "@/lib/supabase";
 import { Card } from "./Card";
-const Admin = () => {
+const UploadImage = () => {
   const { user, getImages, images } = useAppContext();
   const filteredData = images.filter((item: any) => item.name !== ".emptyFolderPlaceholder");
 
@@ -54,4 +54,4 @@ const Admin = () => {
   );
 };
 
-export default Admin;
+export default UploadImage;

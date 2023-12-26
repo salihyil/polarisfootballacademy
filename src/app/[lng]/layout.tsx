@@ -1,8 +1,8 @@
-import { AppWrapper } from "@/context";
+import "@/app/globals.scss";
+import { AppWrapper } from "@/context/AppWrapper";
 import { dir } from "i18next";
 import type { Metadata } from "next";
 import { Inter, Oswald } from "next/font/google";
-import "../globals.scss";
 import { languages } from "../i18n/settings";
 
 export const metadata: Metadata = {

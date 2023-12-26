@@ -72,6 +72,8 @@ export function AppWrapper({
     fetchCurrentUser();
   }, []);
 
+  console.log("user:", user);
+
   return (
     <AppContext.Provider
       value={{

@@ -1,7 +1,7 @@
 "use client";
 
 import { CDNURL } from "@/app/[lng]/photo-gallery/constant";
-import { useAppContext } from "@/context";
+import { useAppContext } from "@/context/AppWrapper";
 import Image from "next/image";
 import Button from "../Button";
 

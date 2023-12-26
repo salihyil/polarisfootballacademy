@@ -1,6 +1,6 @@
 "use client";
 
-import Admin from "../Admin";
+import UploadImage from "@/components/UploadImage";
 import { Home } from "../Icons/Home";
 
 import SidebarMenu from "./Menu";
@@ -21,6 +21,18 @@ export const menu: MenuItem[] = [
   },
   {
     icon: <Home />,
+    path: `/upload-image`,
+    title: "Upload Image",
+    signOut: true,
+  },
+  {
+    icon: <Home />,
+    path: `/yoklama`,
+    title: "Yoklama",
+    signOut: true,
+  },
+  {
+    icon: <Home />,
     path: `/`,
     title: "Çıkış Yap",
     signOut: true,
@@ -38,7 +50,7 @@ export default function Sidebar() {
           <SidebarMenu menu={menu} />
         </div>
       </div>
-      <Admin />
+      <UploadImage />
     </>
   );
 }

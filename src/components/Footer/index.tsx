@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslation } from "@/app/i18n/client";
-import { useAppContext } from "@/context";
+import { useAppContext } from "@/context/AppWrapper";
 import Link from "next/link";
 import EntypoSocialInstagram from "../../../public/assets/icons/EntypoSocialInstagram";
 import MaterialSymbolsLocationOnRounded from "../../../public/assets/icons/MaterialSymbolsLocationOnRounded";

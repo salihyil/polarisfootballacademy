@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslation } from "@/app/i18n/client";
-import { useAppContext } from "@/context";
+import { useAppContext } from "@/context/AppWrapper";
 import { MenuItem, SubMenuItem } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
