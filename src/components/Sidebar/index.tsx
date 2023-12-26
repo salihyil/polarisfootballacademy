@@ -3,9 +3,12 @@
 import UploadImage from "@/components/UploadImage";
 import { Home } from "../Icons/Home";
 
+import { AnimatePresence, motion } from "framer-motion";
+import Hamburger from "hamburger-react";
+import { useRef, useState } from "react";
+import { useClickAway } from "react-use";
 import SidebarMenu from "./Menu";
 import UserItem from "./UserItem";
-
 export interface MenuItem {
   icon: any;
   path: string;
@@ -40,16 +43,45 @@ export const menu: MenuItem[] = [
 ];
 
 export default function Sidebar() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const ref = useRef(null);
+
+  useClickAway(ref, () => setIsOpen(false));
   return (
     <>
-      <div className="flex flex-col min-h-screen py-6 px-6 overflow-hidden w-[360px] border-r">
-        <div className="mb-4">
-          <UserItem />
+      <div className="  lg:flex flex-col min-h-screen py-6 px-6 overflow-hidden w-[360px] border-r max-lg:border-none">
+        <div ref={ref} className="lg:hidden ">
+          <Hamburger toggled={isOpen} size={30} toggle={setIsOpen} />
+          <AnimatePresence>
+            {isOpen && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2 }}
+                className="z-[1] fixed w-2/3 h-screen left-0 shadow-4xl top-0  p-8  bg-[#E8E8E8] border-b border-b-white/20">
+                <div className="mb-4">
+                  <UserItem />
+                </div>
+                <div className="w-full grow">
+                  <SidebarMenu menu={menu} />
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
-        <div className="w-full grow">
-          <SidebarMenu menu={menu} />
+
+        <div className=" max-lg:hidden">
+          <div className="mb-4">
+            <UserItem />
+          </div>
+          <div className="w-full grow">
+            <SidebarMenu menu={menu} />
+          </div>
         </div>
       </div>
+
       <UploadImage />
     </>
   );
