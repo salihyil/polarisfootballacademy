@@ -30,7 +30,7 @@ const UploadImage = () => {
   };
 
   return (
-    <div className="w-full container p-6">
+    <div className="max-lg:absolute max-lg:top-14  w-full container p-6 max-w-full">
       <label htmlFor="img">Eklenecek Resmi Seç:</label>
       <input
         multiple
@@ -41,7 +41,7 @@ const UploadImage = () => {
         onChange={(e) => uploadImage(e)}
       />
 
-      <div className="mt-4 grid gap-4 grid-cols-1 justify-items-center lg:grid-cols-2 :grid-cols-3">
+      <div className="mt-4 grid gap-4  justify-items-center grid-cols-1  mdl:grid-cols-2 3xl:grid-cols-3">
         {filteredData.map((image: any) => {
           return (
             <div key={CDNURL + image.name}>

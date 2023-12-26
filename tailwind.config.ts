@@ -26,6 +26,10 @@ const config: Config = {
       fontFamily: {
         oswald: ["--font-oswald", "sans-serif"],
       },
+      screens: {
+        mdl: "1147px",
+        "3xl": "1560px",
+      },
     },
   },
   plugins: [],

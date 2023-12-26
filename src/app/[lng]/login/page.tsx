@@ -1,7 +1,7 @@
 "use client";
 
 import Button from "@/components/Button";
-import { useAppContext } from "@/context";
+import { useAppContext } from "@/context/AppWrapper";
 import { useNavigation } from "@/hooks/useNavigation";
 
 import { isValidEmail } from "@/lib/utils";
@@ -59,7 +59,7 @@ export default function Login() {
           refresh_token,
         });
         setUser(user);
-        router.refresh();
+        router.push("/");
       }
     } catch (error: any) {
       throw new Error(error);
@@ -102,7 +102,7 @@ export default function Login() {
           </div>
           {error && <div className="notification error">{error}</div>}
           <div>
-            <Button loading={loading} label="Login"  />
+            <Button loading={loading} label="Login" />
           </div>
         </div>
       </form>
