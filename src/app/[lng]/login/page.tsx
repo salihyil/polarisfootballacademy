@@ -70,34 +70,42 @@ export default function Login() {
 
   return (
     <div className="flex justify-center items-center bg-gray-100 h-screen w-full py-8">
-      <div className="bg-white rounded-lg shadow-sm border w-[300px] mx-auto px-6 py-4 grid gap-4">
-        <div className="grid">
-          <label htmlFor="email">E-mail</label>
-          <input id="email" type="text" name="email" value={data?.email} onChange={handleChange} />
-        </div>
-        <div className="grid">
-          <label htmlFor="password">Password</label>
-          <div className="relative">
+      <form action={login}>
+        <div className="bg-white rounded-lg shadow-sm border w-[300px] mx-auto px-6 py-4 grid gap-4">
+          <div className="grid">
+            <label htmlFor="email">E-mail</label>
             <input
-              id="password"
-              type={inputType}
-              name="password"
-              value={data?.password}
+              id="email"
+              type="text"
+              name="email"
+              value={data?.email}
               onChange={handleChange}
             />
+          </div>
+          <div className="grid">
+            <label htmlFor="password">Password</label>
+            <div className="relative">
+              <input
+                id="password"
+                type={inputType}
+                name="password"
+                value={data?.password}
+                onChange={handleChange}
+              />
 
-            <div
-              className="absolute top-0 right-0 flex items-center h-full align-middle pr-4"
-              onClick={togglePasswordVisibility}>
-              {passwordVisible ? <GridiconsVisible /> : <GridiconsNotVisible />}
+              <div
+                className="absolute top-0 right-0 flex items-center h-full align-middle pr-4"
+                onClick={togglePasswordVisibility}>
+                {passwordVisible ? <GridiconsVisible /> : <GridiconsNotVisible />}
+              </div>
             </div>
           </div>
+          {error && <div className="notification error">{error}</div>}
+          <div>
+            <Button loading={loading} label="Login"  />
+          </div>
         </div>
-        {error && <div className="notification error">{error}</div>}
-        <div>
-          <Button loading={loading} label="Login" onClick={login} />
-        </div>
-      </div>
+      </form>
     </div>
   );
 }
