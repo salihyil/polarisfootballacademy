@@ -53,5 +53,9 @@ export async function middleware(req: NextRequest) {
     }
   }
 
+  if (!session && req.nextUrl.pathname.includes("/admin")) {
+    return NextResponse.redirect(new URL(`/${lng}`, req.url));
+  }
+
   return res;
 }

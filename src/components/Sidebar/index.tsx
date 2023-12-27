@@ -1,12 +1,12 @@
 "use client";
 
-import UploadImage from "@/components/UploadImage";
-import { Home } from "../Icons/Home";
-
+import { useAppContext } from "@/context/AppWrapper";
+import { useNavigation } from "@/hooks/useNavigation";
 import { AnimatePresence, motion } from "framer-motion";
 import Hamburger from "hamburger-react";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useClickAway } from "react-use";
+import { Home } from "../Icons/Home";
 import SidebarMenu from "./Menu";
 import UserItem from "./UserItem";
 export interface MenuItem {
@@ -19,20 +19,18 @@ export interface MenuItem {
 export const menu: MenuItem[] = [
   {
     icon: <Home />,
-    path: "/",
+    path: "/admin",
     title: "Dashboard",
   },
   {
     icon: <Home />,
-    path: `/upload-image`,
+    path: `admin/upload-image`,
     title: "Upload Image",
-    signOut: true,
   },
   {
     icon: <Home />,
-    path: `/yoklama`,
+    path: `admin/yoklama`,
     title: "Yoklama",
-    signOut: true,
   },
   {
     icon: <Home />,
@@ -42,12 +40,17 @@ export const menu: MenuItem[] = [
   },
 ];
 
-export default function Sidebar() {
+export default function Sidebar({ children }: Readonly<{ children: React.ReactNode }>) {
+  const { user } = useAppContext();
+  const { pathname } = useNavigation();
   const [isOpen, setIsOpen] = useState(false);
-
   const ref = useRef(null);
-
   useClickAway(ref, () => setIsOpen(false));
+
+  useEffect(() => {
+    console.log("user:::", user);
+  }, [user]);
+
   return (
     <>
       <div className="  lg:flex flex-col min-h-screen py-6 px-6 overflow-hidden w-[360px] border-r max-lg:border-none">
@@ -82,7 +85,7 @@ export default function Sidebar() {
         </div>
       </div>
 
-      <UploadImage />
+      {children}
     </>
   );
 }

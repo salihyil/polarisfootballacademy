@@ -3,6 +3,7 @@
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import Sidebar from "@/components/Sidebar";
+import { useNavigation } from "@/hooks/useNavigation";
 import { supabase } from "@/lib/supabase";
 import { User } from "@/types";
 import { createContext, useContext, useEffect, useState } from "react";
@@ -19,6 +20,7 @@ export function AppWrapper({
   const [images, setImages] = useState<any>([]);
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
+  const { pathname, router } = useNavigation();
 
   const getImages = async () => {
     try {
@@ -45,6 +47,10 @@ export function AppWrapper({
   }
 
   useEffect(() => {
+    if (user && pathname.includes("/")) {
+      router.push("/admin");
+    }
+
     if (user) {
       getImages();
     }
@@ -93,7 +99,7 @@ export function AppWrapper({
           </>
         ) : (
           <div className="flex items-start justify-start w-full relative">
-            <Sidebar />
+            <Sidebar>{pathname.includes("/admin") && children}</Sidebar>
           </div>
         )}
       </main>

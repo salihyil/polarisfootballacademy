@@ -59,7 +59,7 @@ export default function Login() {
           refresh_token,
         });
         setUser(user);
-        router.push("/");
+        router.push("/admin");
       }
     } catch (error: any) {
       throw new Error(error);
