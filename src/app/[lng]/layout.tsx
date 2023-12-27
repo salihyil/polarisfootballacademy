@@ -1,4 +1,3 @@
-import "@/app/globals.scss";
 import { AppWrapper } from "@/context/AppWrapper";
 import { dir } from "i18next";
 import type { Metadata } from "next";

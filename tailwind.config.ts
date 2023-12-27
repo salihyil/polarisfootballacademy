@@ -27,6 +27,7 @@ const config: Config = {
         oswald: ["--font-oswald", "sans-serif"],
       },
       screens: {
+        mdl1: "1090px",
         mdl: "1147px",
         "3xl": "1560px",
       },

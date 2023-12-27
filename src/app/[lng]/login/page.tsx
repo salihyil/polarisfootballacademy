@@ -75,6 +75,7 @@ export default function Login() {
           <div className="grid">
             <label htmlFor="email">E-mail</label>
             <input
+              autoComplete="email"
               id="email"
               type="text"
               name="email"
@@ -86,6 +87,7 @@ export default function Login() {
             <label htmlFor="password">Password</label>
             <div className="relative">
               <input
+                autoComplete="current-password"
                 id="password"
                 type={inputType}
                 name="password"
@@ -100,6 +102,10 @@ export default function Login() {
               </div>
             </div>
           </div>
+      {/*     <div className="flex items-center">
+            <input className="mr-2" id="rememberme" name="rememberme" type="checkbox" />
+            <label htmlFor="rememberme">Remember me</label>
+          </div> */}
           {error && <div className="notification error">{error}</div>}
           <div>
             <Button loading={loading} label="Login" />

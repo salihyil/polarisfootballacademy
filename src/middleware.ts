@@ -25,8 +25,6 @@ export async function middleware(req: NextRequest) {
     error,
   } = await supabase.auth.getSession();
 
-  console.log("session::", session);
-
   if (req.cookies.has(cookieName)) {
     const cookie = req.cookies.get(cookieName);
     if (cookie) {

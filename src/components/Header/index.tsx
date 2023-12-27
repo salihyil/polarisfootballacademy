@@ -50,7 +50,7 @@ export const Header = () => {
     };
   }, [setVisibleNav, setVisibleSocial]);
 
-  const headerNavStyle = [visibleNav ? "bg-white" : "lg:bg-transparent"];
+  const headerNavStyle = [visibleNav ? "bg-white py-4" : "lg:bg-transparent"];
   const headerSocialStyle = [visibleSocial ? "translate-y-0" : " lg:translate-y-[-50px]"];
 
   return (
@@ -72,11 +72,8 @@ export const Header = () => {
           </div>
         </div>
       </div>
-      <div
-        className={`w-full min-h-full shadow-lg px-[30px] max-lg:bg-white   ${headerNavStyle} ${
-          visibleNav ? "py-4" : ""
-        }`}>
-        <div className="container mx-auto flex lg:justify-around items-center ">
+      <div className={`w-full shadow-lg mdl1:px-[30px] max-lg:bg-white ${headerNavStyle}`}>
+        <div className="container mx-auto w-full flex lg:justify-around items-center ">
           <NavMobile lng={lng} />
           <div>
             <Link href={`/${lng}`}>
@@ -91,7 +88,7 @@ export const Header = () => {
             </Link>
           </div>
           <nav className="nav-wrapper">
-            <ul className="hidden lg:flex items-center gap-5">
+            <ul className="hidden lg:flex items-center gap-2 mdl1-[1090px]:gap-5">
               {navMenu.map((item: MenuItem) => {
                 return (
                   <li
