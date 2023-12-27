@@ -29,7 +29,7 @@ export default function SidebarMenu({
         <Link
           onClick={item.signOut ? logout : () => {}}
           key={index}
-          href={item.path}
+          href={item.signOut ? "/" : `/admin${item.path}`}
           className={`flex items-center justify-start px-3 py-1 rounded-lg gap-2 hover:bg-gray-100 ${
             pathname === item.path ? "bg-gray-100" : ""
           } transition w-full`}>

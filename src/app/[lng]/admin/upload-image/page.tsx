@@ -30,7 +30,7 @@ const UploadImage = () => {
   };
 
   return (
-    <div className="max-lg:absolute max-lg:top-14  w-full container p-6 max-w-full">
+    <>
       <label htmlFor="img">Eklenecek Resmi Seç:</label>
       <input
         multiple
@@ -50,7 +50,7 @@ const UploadImage = () => {
           );
         })}
       </div>
-    </div>
+    </>
   );
 };
 

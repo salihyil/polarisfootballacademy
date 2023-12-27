@@ -1,10 +1,8 @@
 "use client";
 
-import { useAppContext } from "@/context/AppWrapper";
-import { useNavigation } from "@/hooks/useNavigation";
 import { AnimatePresence, motion } from "framer-motion";
 import Hamburger from "hamburger-react";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { useClickAway } from "react-use";
 import { Home } from "../Icons/Home";
 import SidebarMenu from "./Menu";
@@ -19,18 +17,18 @@ export interface MenuItem {
 export const menu: MenuItem[] = [
   {
     icon: <Home />,
-    path: "/admin",
+    path: "/",
     title: "Dashboard",
   },
   {
     icon: <Home />,
-    path: `admin/upload-image`,
+    path: `/upload-image`,
     title: "Upload Image",
   },
   {
     icon: <Home />,
-    path: `admin/yoklama`,
-    title: "Yoklama",
+    path: `/roll-call`,
+    title: "Roll Call",
   },
   {
     icon: <Home />,
@@ -41,15 +39,9 @@ export const menu: MenuItem[] = [
 ];
 
 export default function Sidebar({ children }: Readonly<{ children: React.ReactNode }>) {
-  const { user } = useAppContext();
-  const { pathname } = useNavigation();
   const [isOpen, setIsOpen] = useState(false);
   const ref = useRef(null);
   useClickAway(ref, () => setIsOpen(false));
-
-  useEffect(() => {
-    console.log("user:::", user);
-  }, [user]);
 
   return (
     <>
@@ -84,8 +76,9 @@ export default function Sidebar({ children }: Readonly<{ children: React.ReactNo
           </div>
         </div>
       </div>
-
-      {children}
+      <div className="max-lg:absolute max-lg:top-14  w-full container p-6 max-w-full">
+        {children}
+      </div>
     </>
   );
 }
