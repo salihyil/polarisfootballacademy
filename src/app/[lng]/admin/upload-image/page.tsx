@@ -1,11 +1,11 @@
 "use client";
 
 import { CDNURL } from "@/app/[lng]/photo-gallery/constant";
-import { Card } from "@/components/Card";
+import { ImageAndText } from "@/components/ImageAndText";
 import { useAppContext } from "@/context/AppWrapper";
 import { supabase } from "@/lib/supabase";
 const UploadImage = () => {
-  const { user, getImages, images } = useAppContext();
+  const { getImages, images } = useAppContext();
   const filteredData = images.filter((item: any) => item.name !== ".emptyFolderPlaceholder");
 
   const uploadImage = async (e: any) => {
@@ -45,7 +45,7 @@ const UploadImage = () => {
         {filteredData.map((image: any) => {
           return (
             <div key={CDNURL + image.name}>
-              <Card image={image} />
+              <ImageAndText image={image} />
             </div>
           );
         })}

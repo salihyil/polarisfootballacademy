@@ -1,31 +1,39 @@
-"use client";
+import PropTypes from "prop-types";
+import * as React from "react";
+import CardBody from "./CardBody";
+import CardImg from "./CardImg";
+import CardText from "./CardText";
+import CardTitle from "./CardTitle";
 
-import { CDNURL } from "@/app/[lng]/photo-gallery/constant";
-import { useAppContext } from "@/context/AppWrapper";
-import Image from "next/image";
-import Button from "../Button";
+type Props = {
+  as?: "div";
+  children: React.ReactNode;
+  className: string;
+};
 
-export const Card = ({ image }: { image: { name: string } }) => {
-  const { deleteImage } = useAppContext();
+const propTypes = {
+  as: PropTypes.elementType,
+};
 
+const Card = ({ className, as: Component = "div", children, ...props }: Props) => {
   return (
-    <div className="max-w-sm rounded shadow p-6">
-      <Image
-        className="w-full"
-        width={500}
-        height={500}
-        src={`${CDNURL}${image.name}`}
-        alt={image.name}
-        priority
-      />
-      <div className="p-3 ">
-        <div className="break-words  ">
-          <div className="font-bold ">Image name:</div> <div>{image.name}</div>
-        </div>
-        <Button color="bg-red-400" onClick={() => deleteImage(image.name)}>
-          Delete Image
-        </Button>
-      </div>
-    </div>
+    <Component className={className} {...props}>
+      {children}
+    </Component>
   );
 };
+
+Card.propTypes = propTypes;
+
+export default Object.assign(Card, {
+  Img: CardImg,
+  Title: CardTitle,
+  Body: CardBody,
+  Text: CardText,
+});
+
+/*export default Card;
+
+ Card.Img = CardImg;
+Card.Body = CardBody;
+Card.Title = CardTitle; */
