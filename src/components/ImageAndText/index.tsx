@@ -36,7 +36,7 @@ export const ImageAndText = ({ image }: { image: { name: string } }) => {
           priority
         />
         <Card.Body className="p-3">
-          <Card.Title className="font-bold" title="Image name:" />
+          <Card.Title className="font-bold">Image name:</Card.Title>
           <Card.Text className="break-words">{image.name}</Card.Text>
           <Button color="bg-red-400" onClick={handleOpen}>
             Delete Image

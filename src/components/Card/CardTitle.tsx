@@ -4,15 +4,19 @@ import * as React from "react";
 type Props = {
   as?: "div";
   className: string;
-  title: string;
+  children: React.ReactNode;
 };
 
 const propTypes = {
   as: PropTypes.elementType,
 };
 
-const CardTitle = ({ title, className, as: Component = "div", ...props }: Props) => {
-  return <Component title={title} className={className} {...props} />;
+const CardTitle = ({ children, className, as: Component = "div", ...props }: Props) => {
+  return (
+    <Component className={className} {...props}>
+      {children}
+    </Component>
+  );
 };
 
 CardTitle.displayName = "CardTitle";

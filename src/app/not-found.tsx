@@ -32,12 +32,10 @@ export default function NotFound() {
     const redirectTimer = setInterval(() => {
       if (countdown > 0) {
         setCountdown((prevCountdown) => prevCountdown - 1);
+      } else if (user && pathname.includes("/")) {
+        router.push("/admin");
       } else {
-        if (user && pathname.includes("/")) {
-          router.push("/admin");
-        } else {
-          router.push("/"); // Redirect to the desired page
-        }
+        router.push("/"); // Redirect to the desired page
       }
     }, 1000); // Update every 1 second
 
