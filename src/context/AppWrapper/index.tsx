@@ -36,15 +36,7 @@ export function AppWrapper({
     }
   };
 
-  async function deleteImage(imageName: any) {
-    const { data, error } = await supabase.storage.from("images").remove([imageName]);
 
-    if (error) {
-      alert(error);
-    } else {
-      getImages();
-    }
-  }
 
   useEffect(() => {
     if (user && pathname.includes("/")) {
@@ -88,7 +80,7 @@ export function AppWrapper({
         images,
         setImages,
         getImages,
-        deleteImage,
+         
       }}>
       <main>
         {user === null ? (

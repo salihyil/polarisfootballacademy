@@ -1,7 +1,7 @@
 type Props = {};
 
 const RollCall = (props: Props) => {
-  return <div>RollCall Page</div>;
+  return <div>Roll Call Page</div>;
 };
 
 export default RollCall;

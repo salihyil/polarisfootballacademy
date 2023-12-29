@@ -41,7 +41,8 @@ const UploadImage = () => {
         onChange={(e) => uploadImage(e)}
       />
 
-      <div className="mt-4 grid gap-4  justify-items-center grid-cols-1  mdl:grid-cols-2 3xl:grid-cols-3">
+      <div className="mt-4 grid gap-4  justify-items-center grid-cols-1  mdl:grid-cols-2  3xl:grid-cols-3">
+        {filteredData.length === 0 && "Gösterilecek resim yok."}
         {filteredData.map((image: any) => {
           return (
             <div key={CDNURL + image.name}>
