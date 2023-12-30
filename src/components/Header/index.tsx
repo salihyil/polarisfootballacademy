@@ -55,7 +55,7 @@ export const Header = () => {
 
   return (
     <header
-      className={`lg:fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${headerSocialStyle} `}>
+      className={`relative lg:fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${headerSocialStyle} `}>
       <div className={`hidden lg:block lg:bg-black lg:w-full lg:min-h-full   `}>
         <div className="container mx-auto  flex justify-end items-center  min-w-[320px] w-auto min-h-full  max-w-[1260px] px-4 py-2 ">
           <div className="text-white flex items-center gap-1 ">

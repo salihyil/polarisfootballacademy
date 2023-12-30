@@ -8,11 +8,11 @@ export const navMenu: MenuItem[] = [
     subMenu: [
       {
         title: "en",
-        href: "en",
+        href: "/en",
       },
       {
         title: "tw",
-        href: "tw",
+        href: "/tw",
       },
     ],
   },
