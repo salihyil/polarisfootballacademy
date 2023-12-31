@@ -3,6 +3,7 @@
 import { useTranslation } from "@/app/i18n/client";
 import { useAppContext } from "@/context/AppWrapper";
 import { MenuItem, SubMenuItem } from "@/types";
+import { Oswald } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -12,6 +13,8 @@ import IonSocialInstagramOutline from "../../../public/assets/icons/IonSocialIns
 import logoT from "../../../public/assets/images/logo_transparent.png";
 import { NavMobile } from "../NavMobile";
 import { navMenu } from "./constant";
+
+const oswald = Oswald({ subsets: ["latin"], variable: "--font-oswald" });
 
 export const Header = () => {
   const { lng } = useAppContext();
@@ -88,23 +91,25 @@ export const Header = () => {
             </Link>
           </div>
           <nav className="nav-wrapper">
-            <ul className="hidden lg:flex items-center gap-2 mdl1-[1090px]:gap-5">
+            <ul className="hidden lg:flex items-center gap-2 mdl1:gap-5 text-[15px]">
               {navMenu.map((item: MenuItem) => {
                 return (
                   <li
                     key={item.title}
-                    className={`group relative tracking-wide transition  text-black  font-oswald font-bold hover:text-[#CC9966] uppercase`}>
+                    className={`group relative tracking-wide transition  text-black ${oswald.className} font-bold hover:text-[#CC9966] uppercase`}>
                     <Link href={`/${lng}/${item.href}`}>{t(item.title)}</Link>
                     {item.dropdown && (
-                      <div className={`group-hover:block absolute hidden h-auto   `}>
-                        <ul className="top-0 w-48 bg-white shadow px-4 py-6">
+                      <div className={`group-hover:block absolute hidden h-auto `}>
+                        <ul className="top-0 w-48 bg-white shadow  ">
                           {item?.subMenu &&
                             item.subMenu.map((subItem: SubMenuItem, index: number) => {
                               return (
-                                <li key={index} className="py-1">
+                                <li
+                                  key={index}
+                                  className="p-4 border-b border-b-[#E8E8E8] border-opacity-50 hover:border-b-black hover:border-opacity-100 last:border-0">
                                   <Link
                                     href={subItem.href}
-                                    className="block text-black font-bold text-base uppercase duration-300 transition hover:text-[#CC9966] hover:border-b-gray-500 hover:border-b-2  cursor-pointer">
+                                    className={`block text-black text-xs font-bold ${oswald.className} uppercase duration-300 transition hover:text-[#CC9966] cursor-pointer`}>
                                     {t(subItem.title)}
                                   </Link>
                                 </li>
