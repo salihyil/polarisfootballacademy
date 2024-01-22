@@ -24,7 +24,8 @@ const config: Config = {
         "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       fontFamily: {
-        oswald: ["--font-oswald", "sans-serif"],
+        inter: ["var(--font-inter)"],
+        oswald: ["var(--font-oswald)"],
       },
       screens: {
         mdl1: "1090px",

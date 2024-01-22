@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export async function generateStaticParams() {
   return languages.map((lng) => ({ lng }));
 }
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const oswald = Oswald({ subsets: ["latin"], variable: "--font-oswald" });
 
 export default function RootLayout({
@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang={lng} dir={dir(lng)}>
       <head />
-      <body className={`${inter.className} ${oswald.variable} `}>
+      <body className={`${inter.variable} ${oswald.variable} font-sans`}>
         <AppWrapper lng={lng}>{children}</AppWrapper>
       </body>
     </html>
